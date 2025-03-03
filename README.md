@@ -5,7 +5,7 @@ More to come soon! (hopefully)
 
 
 
-# Mod based off of the tutorial at
+# Mod based off of neamoe's template 
 Check out https://moddev.nea.moe/ for a full tutorial on legacy modding.
 
 ## Licensing
