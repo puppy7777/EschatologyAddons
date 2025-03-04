@@ -1,6 +1,6 @@
-package com.bunny.eschatAddons.Commands;
+package com.bunny.eschataddons.Commands;
 
-import com.bunny.eschatAddons.GUI.GuiEschat;
+import com.bunny.eschataddons.GUI.GuiEschat;
 import net.minecraft.client.Minecraft;
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.ICommandSender;

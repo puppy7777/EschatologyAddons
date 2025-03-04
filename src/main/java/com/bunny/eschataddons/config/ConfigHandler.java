@@ -1,6 +1,5 @@
-package com.bunny.eschatAddons.config;
+package com.bunny.eschataddons.config;
 
-import com.bunny.eschatAddons.features.DungeonFloorCommands;
 import net.minecraftforge.common.config.Configuration;
 import java.io.File;
 

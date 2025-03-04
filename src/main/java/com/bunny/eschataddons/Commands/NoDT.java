@@ -1,6 +1,6 @@
-package com.bunny.eschatAddons.Commands;
+package com.bunny.eschataddons.Commands;
 
-import com.bunny.eschatAddons.config.ConfigHandler;
+import com.bunny.eschataddons.config.ConfigHandler;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.command.CommandBase;
 import net.minecraft.util.ChatComponentText;

@@ -1,4 +1,4 @@
-package com.bunny.eschatAddons.Util;
+package com.bunny.eschataddons.Util;
 
 
 import com.google.common.collect.Iterables;
@@ -9,9 +9,7 @@ import net.minecraft.scoreboard.Score;
 import net.minecraft.scoreboard.ScoreObjective;
 import net.minecraft.scoreboard.ScorePlayerTeam;
 import net.minecraft.scoreboard.Scoreboard;
-import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.IChatComponent;
-import net.minecraft.util.StringUtils;
 
 import java.util.ArrayList;
 import java.util.Collection;

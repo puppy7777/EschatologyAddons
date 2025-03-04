@@ -1,4 +1,4 @@
-package com.bunny.eschatAddons.features;
+package com.bunny.eschataddons.features;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.command.CommandBase;
@@ -7,8 +7,9 @@ import net.minecraft.command.ICommandSender;
 import net.minecraft.util.ChatComponentText;
 import net.minecraftforge.client.event.ClientChatReceivedEvent;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.world.WorldEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import com.bunny.eschatAddons.Util.ScoreboardManager;
+import com.bunny.eschataddons.Util.ScoreboardManager;
 
 import java.util.List;
 import java.util.regex.Pattern;
@@ -33,6 +34,12 @@ public class ScoreCalc {
             mimicDead = true;
         }
     }
+
+    @SubscribeEvent
+    public void onLoad(WorldEvent.Load world) {
+        mimicDead = false;
+    }
+
     // secrets%, secrets#, crypts, puzzlesDone, puzzlesTotal, numDeaths
     public static double[] getDungeonClear() {
         double[] dungeonClear = {0,0,0,0,0,0};
@@ -91,12 +98,12 @@ public class ScoreCalc {
         return dungeonClear;
     }
 
-    public static void calcScore() {
+    public static void updateScore() {
         if (System.currentTimeMillis() - lastScoreCalc < 500) {
             return;
         }
         lastScoreCalc = System.currentTimeMillis();
-        getFloorPercentage();
+        updateFloor();
         if (dungeonFloorPercent == -1) {
             mimicDead = false;
             return;
@@ -150,7 +157,7 @@ public class ScoreCalc {
         }
     }
 
-    public static void getFloorPercentage() {
+    public static void updateFloor() {
         // -1 for not in dungeon, 1-7 standard, screw entrance
         //3 seconds between each dungeon check
         if (System.currentTimeMillis() - lastInDungeonCheck < 3000) {
@@ -225,7 +232,7 @@ public class ScoreCalc {
             for (double num : dungeonClear) {
                 Minecraft.getMinecraft().thePlayer.addChatMessage(new ChatComponentText(String.valueOf(num)));
             }
-            calcScore();
+            updateScore();
             int[] scoreInfo = ScoreCalc.dungeonScore;
         }
 

@@ -1,6 +1,6 @@
-package com.bunny.eschatAddons.GUI;
+package com.bunny.eschataddons.GUI;
 
-import com.bunny.eschatAddons.config.ConfigHandler;
+import com.bunny.eschataddons.config.ConfigHandler;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraftforge.fml.client.config.GuiSlider;

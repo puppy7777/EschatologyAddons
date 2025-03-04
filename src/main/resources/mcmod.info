@@ -1,13 +1,13 @@
 [
 {
-  "modid": "EschatAddons",
+  "modid": "eschataddons",
   "name": "EschatAddons",
   "description": "Collection of useful skyblock tools",
   "version": "${version}",
   "mcversion": "${mcversion}",
   "url": "",
   "updateUrl": "",
-  "authorList": ["BunnyTheWolf"],
+  "authorList": ["puppy7777, BunnytheWolf"],
   "credits": "",
   "logoFile": "",
   "screenshots": [],

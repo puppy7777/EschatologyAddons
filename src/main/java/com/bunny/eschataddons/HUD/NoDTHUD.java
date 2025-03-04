@@ -1,6 +1,6 @@
-package com.bunny.eschatAddons.HUD;
+package com.bunny.eschataddons.HUD;
 
-import com.bunny.eschatAddons.config.ConfigHandler;
+import com.bunny.eschataddons.config.ConfigHandler;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;

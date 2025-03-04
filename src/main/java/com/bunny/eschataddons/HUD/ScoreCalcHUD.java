@@ -1,12 +1,12 @@
-package com.bunny.eschatAddons.HUD;
+package com.bunny.eschataddons.HUD;
 
-import com.bunny.eschatAddons.config.ConfigHandler;
+import com.bunny.eschataddons.config.ConfigHandler;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.gui.ScaledResolution;
 import net.minecraftforge.client.event.RenderGameOverlayEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import com.bunny.eschatAddons.features.ScoreCalc;
+import com.bunny.eschataddons.features.ScoreCalc;
 
 public class ScoreCalcHUD {
 
@@ -18,7 +18,8 @@ public class ScoreCalcHUD {
     }
 
     private void drawHUD(ScaledResolution resolution) {
-        ScoreCalc.calcScore();
+        if (!ConfigHandler.ScoreCalcEnabled) { return; }
+        ScoreCalc.updateScore();
         final FontRenderer fr = Minecraft.getMinecraft().fontRendererObj;
         String scoreMessage = "Score: " + ScoreCalc.dungeonScore[0];
         String secretsNeeded = "Secrets to S+: " + ScoreCalc.dungeonScore[1];

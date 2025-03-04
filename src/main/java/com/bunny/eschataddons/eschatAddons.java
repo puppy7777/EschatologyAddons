@@ -1,11 +1,10 @@
-package com.bunny.eschatAddons;
+package com.bunny.eschataddons;
 
-import com.bunny.eschatAddons.Commands.CommandEschat;
-import com.bunny.eschatAddons.HUD.ScoreCalcHUD;
-import com.bunny.eschatAddons.config.ConfigHandler;
-import com.bunny.eschatAddons.features.*;
-import com.bunny.eschatAddons.HUD.NoDTHUD;
-import com.bunny.eschatAddons.HUD.ScoreCalcHUD;
+import com.bunny.eschataddons.Commands.CommandEschat;
+import com.bunny.eschataddons.HUD.ScoreCalcHUD;
+import com.bunny.eschataddons.config.ConfigHandler;
+import com.bunny.eschataddons.features.*;
+import com.bunny.eschataddons.HUD.NoDTHUD;
 import net.minecraftforge.client.ClientCommandHandler;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
@@ -34,14 +33,13 @@ public class eschatAddons {
         MinecraftForge.EVENT_BUS.register(new KeybindHandler());
 
         // Register other event handlers
-        MinecraftForge.EVENT_BUS.register(new NoDTListener());
         MinecraftForge.EVENT_BUS.register(new PartyCommands());
         MinecraftForge.EVENT_BUS.register(new NoDTHUD());
         MinecraftForge.EVENT_BUS.register(new ScoreCalcHUD());
-        MinecraftForge.EVENT_BUS.register(new DungeonFloorCommands());
         MinecraftForge.EVENT_BUS.register(new ScoreCalc());
 
         MinecraftForge.EVENT_BUS.register(new CommandEschat());
+        ClientCommandHandler.instance.registerCommand(new KeybindHandler.EschatGUI());
         ClientCommandHandler.instance.registerCommand(new ScoreCalc.ScoreboardTest());
     }
 }
