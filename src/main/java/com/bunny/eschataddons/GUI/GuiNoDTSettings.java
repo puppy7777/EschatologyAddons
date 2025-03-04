@@ -63,7 +63,7 @@ public class GuiNoDTSettings extends GuiScreen {
 
 
         // Back Button
-        buttonList.add(new GuiButton(20, width / 2 - 75, height / 2 + 75, 150, 20, "Back"));
+        buttonList.add(new GuiButton(20, width / 2 - 75, height / 2 + 75, 150, 20, "Save"));
     }
 
     @Override

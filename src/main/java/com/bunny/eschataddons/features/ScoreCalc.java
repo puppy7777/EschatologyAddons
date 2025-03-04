@@ -22,7 +22,7 @@ public class ScoreCalc {
     public static boolean mimicDead = false;
     public static long lastInDungeonCheck = 0;
     public static long lastScoreCalc = 0;
-    public static int[] dungeonScore = {-1,0};
+    public static int[] dungeonScore = {-1,-1};
     public ScoreCalc() {
         MinecraftForge.EVENT_BUS.register(this);
     }
@@ -37,6 +37,8 @@ public class ScoreCalc {
 
     @SubscribeEvent
     public void onLoad(WorldEvent.Load world) {
+        dungeonScore[0] = -1;
+        dungeonScore[1] = -1;
         mimicDead = false;
     }
 
@@ -99,12 +101,15 @@ public class ScoreCalc {
     }
 
     public static void updateScore() {
-        if (System.currentTimeMillis() - lastScoreCalc < 500) {
-            return;
-        }
+        //update every 500 ms
+        if (System.currentTimeMillis() - lastScoreCalc < 500) return;
+
         lastScoreCalc = System.currentTimeMillis();
         updateFloor();
+        //if not in dungeon, reset
         if (dungeonFloorPercent == -1) {
+            dungeonScore[0] = -1;
+            dungeonScore[1] = -1;
             mimicDead = false;
             return;
         }
@@ -160,9 +165,8 @@ public class ScoreCalc {
     public static void updateFloor() {
         // -1 for not in dungeon, 1-7 standard, screw entrance
         //3 seconds between each dungeon check
-        if (System.currentTimeMillis() - lastInDungeonCheck < 3000) {
-            return;
-        }
+        if (System.currentTimeMillis() - lastInDungeonCheck < 3000) return;
+
         lastInDungeonCheck = System.currentTimeMillis();
         ScoreboardManager.updateSidebar();
         List<String> scoreboardLines = ScoreboardManager.getScoreboardLines();
@@ -205,7 +209,6 @@ public class ScoreCalc {
             }
             else {
                 //we are not in a dungeon
-                mimicDead = false;
                 dungeonFloorPercent = -1;
                 return;
             }

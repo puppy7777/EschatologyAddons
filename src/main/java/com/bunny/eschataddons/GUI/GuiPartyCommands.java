@@ -25,7 +25,7 @@ public class GuiPartyCommands extends GuiScreen {
         buttonList.add(PartyInvitesEnabled);
 
 
-        buttonList.add(new GuiButton(20, width / 2 - 100, height / 2 + 25, 200, 20, "Back"));
+        buttonList.add(new GuiButton(20, width / 2 - 100, height / 2 + 25, 200, 20, "Save"));
 
     }
 

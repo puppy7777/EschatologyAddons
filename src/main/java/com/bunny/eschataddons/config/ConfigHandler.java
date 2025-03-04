@@ -83,7 +83,7 @@ public class ConfigHandler {
         config.get("PartyCommands", "InvEnabled", PartyInvEnabled, "Is !inv enabled?").set(PartyInvEnabled);
 
         //dungeon floor commands
-        config.get("Dungeon Floor Commands", "Enabled", true, "!f1-7, !m1-7 enabled?").set(DungeonFloorCommandsEnabled);
+        config.get("Dungeon Floor Commands", "Enabled", DungeonFloorCommandsEnabled, "!f1-7, !m1-7 enabled?").set(DungeonFloorCommandsEnabled);
 
         // score calc
         config.get("ScoreCalc", "Enabled", ScoreCalcEnabled, "Is score calc enabled?").set(ScoreCalcEnabled);

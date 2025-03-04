@@ -1,6 +1,6 @@
 [
 {
-  "modid": "eschataddons",
+  "modid": "eschatAddons",
   "name": "EschatAddons",
   "description": "Collection of useful skyblock tools",
   "version": "${version}",
@@ -8,7 +8,7 @@
   "url": "",
   "updateUrl": "",
   "authorList": ["puppy7777, BunnytheWolf"],
-  "credits": "",
+  "credits": "the entire Eschatology Guild",
   "logoFile": "",
   "screenshots": [],
   "dependencies": []

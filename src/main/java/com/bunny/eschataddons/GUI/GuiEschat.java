@@ -1,8 +1,11 @@
 package com.bunny.eschataddons.GUI;
 
+import com.bunny.eschataddons.Commands.CommandEschat;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.gameevent.TickEvent;
 
 public class GuiEschat extends GuiScreen {
 
@@ -35,5 +38,4 @@ public class GuiEschat extends GuiScreen {
     public boolean doesGuiPauseGame() {
         return false;
     }
-
 }

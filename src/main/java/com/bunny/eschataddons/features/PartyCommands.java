@@ -25,14 +25,13 @@ public class PartyCommands {
 
     @SubscribeEvent
     public void onChatMessage(ClientChatReceivedEvent event) {
-        if (!ConfigHandler.PartyCommandsEnabled) return;
 
         String formattedMessage = StringUtils.stripControlCodes(event.message.getUnformattedText());
         // System.out.println("Formatted Message: " + formattedMessage);
 
         // Regex to match the pattern for "!inv"
         //!invite
-        if (Pattern.compile("^From [^:]*?: !inv(ite)?$").matcher(formattedMessage).find()) {
+        if (Pattern.compile("^From [^:]*?: !inv(ite)?$" ).matcher(formattedMessage).find() && ConfigHandler.PartyInvEnabled) {
 
             // Extract username from formattedMessage
             String playerName = formattedMessage.split(" ")[0].replace(":", "");
@@ -42,7 +41,7 @@ public class PartyCommands {
             Minecraft.getMinecraft().thePlayer.sendChatMessage("/p " + playerName);
         }
         //!f7
-        else if (Pattern.compile("^Party >[^:]*?: ![fFmM][1234567]$").matcher(formattedMessage).find()) {
+        else if (Pattern.compile("^Party >[^:]*?: ![fFmM][1234567]$").matcher(formattedMessage).find() && ConfigHandler.PartyCommandsEnabled) {
             System.out.println("Trying to enter a dungeon!");
             String[] parts = formattedMessage.split("!", 2);
             // if parts[1] is more than three characters, ignore
@@ -54,14 +53,18 @@ public class PartyCommands {
                         ((isMasterMode) ? "master_" : "") + "catacombs_floor_" + floors[floor]);
             } catch (Exception ignored) {}
         }
+        //allinv
+        else if (Pattern.compile("^Party >[^:]*?: !allinv(ite)?$").matcher(formattedMessage).find() && ConfigHandler.PartyCommandsEnabled) {
+            Minecraft.getMinecraft().thePlayer.sendChatMessage("/p settings allinvite true");
+        }
         //!dt
-        else if (Pattern.compile("^Party >[^:]*?: !dt$").matcher(formattedMessage).find()){
+        else if (Pattern.compile("^Party >[^:]*?: !dt$").matcher(formattedMessage).find() && ConfigHandler.NoDTEnabled){
             DtCalled = true;
             Minecraft.getMinecraft().thePlayer.addChatMessage(new ChatComponentText(EnumChatFormatting.DARK_PURPLE + "" + EnumChatFormatting.BOLD + "[EschatAddons] " + EnumChatFormatting.GOLD + "Downtime Called!"));
             return;
         }
         //!dt checking
-        else if (formattedMessage.contains("> EXTRA STATS <")) {
+        else if (formattedMessage.contains("> EXTRA STATS <") && ConfigHandler.NoDTEnabled) {
             if (DtCalled) {
                 DtCalled = false;
                 Minecraft.getMinecraft().thePlayer.sendChatMessage("/pc Downtime Called!");

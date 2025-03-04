@@ -8,6 +8,7 @@ import net.minecraftforge.fml.client.config.GuiSlider;
 public class GuiScoreCalc extends GuiScreen {
     private final GuiScreen parentScreen; // To return to the previous screen
     private GuiButton scoreCalcEnable;
+    public static boolean editingScoreCalc = false;
     private GuiSlider xPosSlider;
     private GuiSlider yPosSlider;
 
@@ -18,6 +19,7 @@ public class GuiScoreCalc extends GuiScreen {
     @Override
     public void initGui() {
         buttonList.clear();
+        editingScoreCalc = true;
 
         // Toggle Buttons
         scoreCalcEnable = new GuiButton(0, width / 2 - 75, height / 2 - 50, 150, 20, getScoreCalcToggleText());
@@ -47,7 +49,7 @@ public class GuiScoreCalc extends GuiScreen {
 
 
         // Back Button
-        buttonList.add(new GuiButton(20, width / 2 - 75, height / 2 + 75, 150, 20, "Back"));
+        buttonList.add(new GuiButton(20, width / 2 - 75, height / 2 + 75, 150, 20, "Save"));
     }
 
     @Override
@@ -56,7 +58,8 @@ public class GuiScoreCalc extends GuiScreen {
             ConfigHandler.ScoreCalcEnabled = !ConfigHandler.ScoreCalcEnabled;
             scoreCalcEnable.displayString = getScoreCalcToggleText();
         } else if (button.id == 20) {
-            mc.displayGuiScreen(parentScreen); // Return to the previous menu
+            mc.displayGuiScreen(parentScreen);
+            editingScoreCalc = false;// Return to the previous menu
         }
     }
 

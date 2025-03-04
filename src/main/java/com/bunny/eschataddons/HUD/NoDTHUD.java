@@ -33,7 +33,7 @@ public class NoDTHUD {
             Downtime = "NoDT";
             this.CurrentColor = DTDisabled; // Green when enabled
         } else {
-            Downtime = " DT ";
+            Downtime = "  DT ";
             this.CurrentColor = DTEnabled; // Red when disabled
         }
 
