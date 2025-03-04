@@ -18,8 +18,9 @@ public class ScoreCalcHUD {
     }
 
     private void drawHUD(ScaledResolution resolution) {
-        if (!ConfigHandler.ScoreCalcEnabled) { return; }
+        if (!ConfigHandler.ScoreCalcEnabled) return;
         ScoreCalc.updateScore();
+        if (ScoreCalc.dungeonScore[0] == -1) return;
         final FontRenderer fr = Minecraft.getMinecraft().fontRendererObj;
         String scoreMessage = "Score: " + ScoreCalc.dungeonScore[0];
         String secretsNeeded = "Secrets to S+: " + ScoreCalc.dungeonScore[1];

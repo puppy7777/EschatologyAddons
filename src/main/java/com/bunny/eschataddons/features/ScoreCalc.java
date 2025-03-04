@@ -209,9 +209,7 @@ public class ScoreCalc {
                 dungeonFloorPercent = -1;
                 return;
             }
-        } catch (Exception uhoh) {
-            Minecraft.getMinecraft().thePlayer.addChatMessage(new ChatComponentText("Failed to read sidebar"));
-        }
+        } catch (Exception ignored) {}
         dungeonFloorPercent = -1;
         //assume not in dungeon
     }

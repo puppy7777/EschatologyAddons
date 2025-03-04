@@ -84,10 +84,7 @@ public class ScoreboardManager {
                 tablistLines.add(displayName.getUnformattedText()); // Preserve colors & ranks
             }
         }
-
     }
-
-
 
     private static void clear() {
         scoreboardTitle = null;

@@ -23,25 +23,5 @@ public class KeybindHandler {
         }
     }
 
-    public static class EschatGUI extends CommandBase {
-        @Override
-        public String getCommandName() {
-            return "ea";
-        }
 
-        @Override
-        public String getCommandUsage(ICommandSender sender) {
-            return "open gui";
-        }
-
-        @Override
-        public void processCommand(ICommandSender sender, String[] args) throws CommandException {
-            Minecraft.getMinecraft().displayGuiScreen(new GuiEschat());
-        }
-
-        @Override
-        public int getRequiredPermissionLevel() {
-            return 0;
-        }
-    }
 }
